@@ -1,16 +1,24 @@
 package co.edu.uptc.sw2.customerservice.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "customer")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    private String address;
     private String location;
-    
-    public Customer(Integer id, String firstName, String lastName, String location) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.location = location;
+
+    public Customer() {
     }
 
     public Integer getId() {
@@ -37,17 +45,19 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getLocation() {
         return location;
     }
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", location=" + location
-                + "]";
     }
 }
