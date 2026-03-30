@@ -101,14 +101,16 @@ function DeleteCustomer() {
             {!loading && !error && (
                 <DataTable
                     value={customers}
+                    className="rounded-datatable"
                     selectionMode="single"
                     selection={selectedCustomer}
                     onSelectionChange={(e) => setSelectedCustomer(e.value)}
                     paginator
                     rows={10}
                     emptyMessage="No hay clientes registrados."
-                    tableStyle={{ minWidth: '50rem' }}
+                    tableStyle={{ minWidth: '50rem', borderRadius: '16px', overflow: 'hidden' }}
                     header="Selecciona el cliente a eliminar"
+                    headerClassName="datatable-section-header"
                 >
                     <Column selectionMode="single" headerStyle={{ width: '3rem' }} />
                     <Column field="id" header="ID" sortable style={{ width: '5rem' }} />

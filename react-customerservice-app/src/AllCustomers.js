@@ -51,10 +51,11 @@ export default class AllCustomers extends Component {
                 {!loading && !error && (
                     <DataTable
                         value={customers}
+                        className="rounded-datatable"
                         paginator
                         rows={10}
                         emptyMessage="No hay clientes registrados."
-                        tableStyle={{ minWidth: '50rem' }}
+                        tableStyle={{ minWidth: '50rem', borderRadius: '16px', overflow: 'hidden' }}
                         header="React Customer App - All Customers"
                     >
                         <Column field="id" header="ID" sortable style={{ width: '5rem' }} />

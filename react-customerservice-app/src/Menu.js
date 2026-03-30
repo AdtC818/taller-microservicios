@@ -10,8 +10,8 @@ import FindCustomer from './FindCustomer';
 export default function Menu() {
     return (
         <div className="App">
-            <Navigation />
             <BrowserRouter>
+                <Navigation />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/allcustomers" element={<AllCustomers />} />

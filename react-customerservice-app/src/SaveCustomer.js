@@ -68,14 +68,14 @@ function SaveCustomer() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
+        <div className="form-wrapper">
             {/* Toast para mensajes de confirmación - Actividad 1 */}
             <Toast ref={toast} position="top-right" />
 
             <Panel
                 header="React Customer App - Save Customers"
-                style={{ width: '100%', maxWidth: '500px' }}
-                className="Panel1"
+                style={{ width: '100%', maxWidth: '500px', borderRadius: '14px', boxShadow: '0 10px 25px rgba(16, 24, 40, 0.16)' }}
+                className="custom-panel"
                 toggleable
             >
                 <form onSubmit={RegisterCustomer}>
@@ -89,7 +89,7 @@ function SaveCustomer() {
                             value={values.firstName}
                             onChange={handleChange}
                             placeholder="Ingrese el nombre"
-                            className={classNames({ 'p-invalid': submitted && !values.firstName.trim() })}
+                            className={classNames('custom-input', { 'p-invalid': submitted && !values.firstName.trim() })}
                             style={{ width: '100%', marginTop: '0.4rem' }}
                         />
                         {submitted && !values.firstName.trim() && (
@@ -106,7 +106,7 @@ function SaveCustomer() {
                             value={values.lastName}
                             onChange={handleChange}
                             placeholder="Ingrese el apellido"
-                            className={classNames({ 'p-invalid': submitted && !values.lastName.trim() })}
+                            className={classNames('custom-input', { 'p-invalid': submitted && !values.lastName.trim() })}
                             style={{ width: '100%', marginTop: '0.4rem' }}
                         />
                         {submitted && !values.lastName.trim() && (
@@ -123,6 +123,7 @@ function SaveCustomer() {
                             value={values.address}
                             onChange={handleChange}
                             placeholder="Ingrese la dirección"
+                            className="custom-input"
                             style={{ width: '100%', marginTop: '0.4rem' }}
                         />
                     </div>
@@ -136,6 +137,7 @@ function SaveCustomer() {
                             value={values.location}
                             onChange={handleChange}
                             placeholder="Ingrese la ciudad/ubicación"
+                            className="custom-input"
                             style={{ width: '100%', marginTop: '0.4rem' }}
                         />
                     </div>
@@ -145,7 +147,8 @@ function SaveCustomer() {
                         label="Registrar"
                         icon="pi pi-save"
                         loading={loading}
-                        style={{ width: '100%' }}
+                        className="custom-button"
+                        style={{ width: '100%', borderRadius: '14px' }}
                     />
                 </form>
             </Panel>

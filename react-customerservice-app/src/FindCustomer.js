@@ -67,15 +67,14 @@ function FindCustomer() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
+        <div className="find-wrapper">
             <Toast ref={toast} position="top-right" />
 
-            <div style={{ width: '100%', maxWidth: '500px' }}>
-                <Panel header="Buscar Cliente por ID" toggleable>
-                    <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-end', marginBottom: '1.5rem' }}>
+            <div className="find-panel-container">
+                <Panel header="Buscar Cliente por ID" className="custom-panel" toggleable>
+                    <div className="search-controls">
                         <div style={{ flex: 1 }}>
-                            <label htmlFor="searchId"><b>Customer ID</b></label>
-                            <br />
+                            <label htmlFor="searchId" className="label-title">Customer ID</label>
                             <InputNumber
                                 id="searchId"
                                 value={searchId}
@@ -83,7 +82,8 @@ function FindCustomer() {
                                 onKeyDown={handleKeyDown}
                                 placeholder="Ej: 1"
                                 min={1}
-                                style={{ width: '100%', marginTop: '0.4rem' }}
+                                className="custom-input"
+                                style={{ width: '100%', marginTop: '0.45rem' }}
                             />
                         </div>
                         <Button
@@ -91,6 +91,7 @@ function FindCustomer() {
                             icon="pi pi-search"
                             loading={loading}
                             onClick={handleSearch}
+                            className="custom-button"
                         />
                     </div>
 
@@ -103,21 +104,21 @@ function FindCustomer() {
 
                     {customer && (
                         <>
-                            <Divider />
                             <Card
                                 title={`${customer.firstName} ${customer.lastName}`}
                                 subTitle={`ID: #${customer.id}`}
+                                className="customer-card"
                                 style={{ marginTop: '1rem' }}
                             >
-                                <div style={{ lineHeight: '2rem' }}>
-                                    <p>
-                                        <i className="pi pi-map-marker" style={{ marginRight: '0.5rem', color: '#3498db' }} />
-                                        <b>Dirección:</b> {customer.address || 'No especificada'}
-                                    </p>
-                                    <p>
-                                        <i className="pi pi-globe" style={{ marginRight: '0.5rem', color: '#2ecc71' }} />
-                                        <b>Ubicación:</b> {customer.location || 'No especificada'}
-                                    </p>
+                                <div className="customer-details">
+                                    <div className="info-item">
+                                        <i className="pi pi-map-marker" />
+                                        <span><strong>Dirección:</strong> {customer.address || 'No especificada'}</span>
+                                    </div>
+                                    <div className="info-item">
+                                        <i className="pi pi-globe" />
+                                        <span><strong>Ubicación:</strong> {customer.location || 'No especificada'}</span>
+                                    </div>
                                 </div>
                             </Card>
                         </>
